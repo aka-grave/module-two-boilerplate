@@ -2,9 +2,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 module.exports = {
+    devtool: 'inline-source-map',
     devServer: {
         host: 'localhost',
-        port: 8080
+        port: 8081
     },
 
     entry: 'main.js',
@@ -15,11 +16,20 @@ module.exports = {
     module: {
         loaders: [
             {
+              test: /\.js/,
+              loaders: ['babel']
+            },
+            {
                 test: /\.css$/,
                 loaders: ['style', 'css']
             },
+
             {
-                test: /\.(gif|png|jpg|svg)$/,
+                test: /\.scss$/,
+                loaders: ['style', 'css', 'sass']
+            },
+            {
+                test: /\.(gif|png|jpg|svg|woff2|woff|ttf|eot)$/,
                 loader: 'file'
             }
         ]
