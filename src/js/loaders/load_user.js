@@ -5,8 +5,10 @@ export default function loadUsers(username) {
   const url = `${settings.api_url}/${settings.game}/account/list/?search=${username}`;
   // create request to the url and return a promise
 
-  return fetch(url)
+  return window.fetch(url)
          .then(response => response.json())
-         .then(response => renderSearchResult(response.data))
+         .then(response => {
+           renderSearchResult(response.data)
+         })
          .catch(() => alert('alert'));
 }

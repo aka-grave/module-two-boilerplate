@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   button.addEventListener('click', () => {
     const value = field.value;
-
     loadUsers(value);
   });
 });
